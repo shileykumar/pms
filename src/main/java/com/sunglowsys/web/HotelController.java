@@ -19,12 +19,12 @@ public class HotelController {
         this.hotelService = hotelService;
     }
 
-    @GetMapping("/hotels/form")
+    @GetMapping("/hotels-form")
     public ModelAndView loadForm() {
-        return new ModelAndView("add-hotel", "hotel", new Hotel());
+        return new ModelAndView("new-hotel", "hotel", new Hotel());
     }
 
-    @PostMapping("/hotels/create")
+    @PostMapping("/hotels-create")
     public ModelAndView createHotel(@ModelAttribute Hotel hotel) {
         hotelService.save(hotel);
         return new ModelAndView("redirect:/hotels");

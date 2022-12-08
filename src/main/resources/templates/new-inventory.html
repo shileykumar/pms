@@ -8,6 +8,7 @@
     <meta content="" name="keywords">
     <meta content="" name="description">
 
+
     <!-- Favicon -->
     <link href="img/favicon.ico" rel="icon">
 
@@ -65,37 +66,38 @@
         <div class="container-fluid pt-4 px-4">
             <div class="row g-4">
 
-                <div class="col-12">
+                <div class="col-sm-12 col-xl-6">
                     <div class="bg-light rounded h-100 p-4">
-                        <div class="d-flex align-items-center justify-content-between mb-4">
-                            <h6 class="mb-0">Hotels</h6>
-                            <a th:href="@{/hotels-form}" class="btn btn-info">Create</a>
-                        </div>
-                        <div class="table-responsive">
-                            <table class="table">
-                                <thead>
-                                <tr>
-                                    <th scope="col">Code</th>
-                                    <th scope="col">Name</th>
-                                    <th scope="col">Type</th>
-                                    <th scope="col">Email</th>
-                                    <th scope="col">Mobile</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr th:each="hotel : ${hotels}">
-                                    <td th:text="${hotel.getCode}"></td>
-                                    <td th:text="${hotel.getName}"></td>
-                                    <td th:text="${hotel.getType}"></td>
-                                    <td th:text="${hotel.getEmail}"></td>
-                                    <td th:text="${hotel.getMobile}"></td>
-                                </tr>
-
-                                </tbody>
-                            </table>
-                        </div>
+                        <h6 class="mb-4">Create Hotel</h6>
+                        <form th:action="@{/inventories-create}" th:object="${inventory}"  method="post">
+                            <div class="mb-3">
+                                <label class="form-label">Total Inventory</label>
+                                <input type="text" class="form-control" th:field="*{totalInventory}">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Hotel</label>
+                                <!--<input type="text" class="form-control" th:field="*{type}">-->
+                                <select class="form-select selectpicker show-tick" th:field="*{hotel}">
+                                    <option th:each="hotel : ${hotels}"
+                                            th:value="${hotel.id}"
+                                            th:text="${hotel.name}">
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">Hotel</label>
+                                <select class="form-select selectpicker show-tick" th:field="*{roomType}">
+                                    <option th:each="type : ${roomTypes}"
+                                            th:value="${type.id}"
+                                            th:text="${type.name}">
+                                    </option>
+                                </select>
+                            </div>
+                            <input type="submit" value="Create" class="btn btn-primary">
+                        </form>
                     </div>
                 </div>
+
             </div>
         </div>
         <!-- Table End -->

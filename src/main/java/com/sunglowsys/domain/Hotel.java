@@ -1,9 +1,8 @@
 package com.sunglowsys.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.sunglowsys.enums.HotelType;
+
+import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
@@ -12,16 +11,27 @@ public class Hotel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(nullable = false)
     private String code;
+
+    @Column(nullable = false)
     private String name;
-    private String type;
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private HotelType type;
+
+    @Column(nullable = false)
     private String mobile;
+
+    @Column(nullable = false)
     private String email;
 
     public Hotel() {
     }
 
-    public Hotel(String code, String name, String type, String mobile, String email) {
+    public Hotel(String code, String name, HotelType type, String mobile, String email) {
         this.code = code;
         this.name = name;
         this.type = type;
@@ -53,11 +63,11 @@ public class Hotel {
         this.name = name;
     }
 
-    public String getType() {
+    public HotelType getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(HotelType type) {
         this.type = type;
     }
 
