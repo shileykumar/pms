@@ -46,20 +46,17 @@
     </div>
     <!-- Spinner End -->
 
-
     <!-- Sidebar Start -->
     <div>
         <nav th:replace="fragments/sidebar :: sidebar"></nav>
     </div>
     <!-- Sidebar End -->
 
-
     <!-- Content Start -->
     <div class="content">
         <!-- Navbar Start -->
         <nav th:replace="fragments/navbar :: navbar"></nav>
         <!-- Navbar End -->
-
 
         <!-- Table Start -->
         <div class="container-fluid pt-4 px-4">
@@ -68,26 +65,31 @@
                 <div class="col-12">
                     <div class="bg-light rounded h-100 p-4">
                         <div class="d-flex align-items-center justify-content-between mb-4">
-                            <h6 class="mb-0">Inventories</h6>
-                            <a th:href="@{/inventories-form}" class="btn btn-info">Create</a>
+                            <h6 class="mb-0">Hotels</h6>
+                            <a th:href="@{/inventory-calender-form}" class="btn btn-info">Create</a>
                         </div>
                         <div class="table-responsive">
                             <table class="table">
                                 <thead>
-                                    <tr>
-                                        <th scope="col">Total Inventory</th>
-                                        <th scope="col">Room Type</th>
-                                        <th scope="col">Hotel</th>
-                                    </tr>
+                                <tr>
+                                    <th scope="col">Date</th>
+                                    <th scope="col">Available</th>
+                                    <th scope="col">Sold</th>
+                                    <th scope="col">Block</th>
+                                    <th scope="col">Hotel</th>
+                                    <th scope="col">RoomType</th>
+                                </tr>
                                 </thead>
                                 <tbody>
-                                    <tr th:each="inventory : ${inventories}">
-                                        <td th:text="${inventory.totalInventory}"></td>
-                                        <td>
-                                            <a th:text="${inventory.hotel.name}" th:href="@{/hotels-{id}(id= ${inventory.hotel.id})}"></a>
-                                        </td>
-                                        <td th:text="${inventory.roomType.name}"></td>
-                                    </tr>
+                                <tr th:each="obj : ${calenders}">
+                                    <td th:text="${obj.inventoryDate}"></td>
+                                    <td th:text="${obj.available}"></td>
+                                    <td th:text="${obj.sold}"></td>
+                                    <td th:text="${obj.block}"></td>
+                                    <td th:text="${obj.hotel.name}"></td>
+                                    <td th:text="${obj.roomType.name}"></td>
+                                </tr>
+
                                 </tbody>
                             </table>
                         </div>
@@ -96,17 +98,15 @@
             </div>
         </div>
         <!-- Table End -->
-
-
         <!-- Footer Start -->
         <div th:replace="fragments/footer :: footer"></div>
         <!-- Footer End -->
     </div>
     <!-- Content End -->
 
-
     <!-- Back to Top -->
     <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+
 </div>
 
 <!-- JavaScript Libraries -->

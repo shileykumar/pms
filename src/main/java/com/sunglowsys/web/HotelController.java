@@ -3,10 +3,7 @@ package com.sunglowsys.web;
 import com.sunglowsys.domain.Hotel;
 import com.sunglowsys.service.HotelService;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -34,4 +31,17 @@ public class HotelController {
     public ModelAndView getHotels() {
         return new ModelAndView("hotel", "hotels", hotelService.getAll());
     }
+
+    @GetMapping("/hotels-{id}")
+    public ModelAndView getHotel(@PathVariable Long id) {
+        Hotel result = hotelService.getById(id).get();
+        return new ModelAndView("hotel-details", "hotel", result);
+    }
+
+    @GetMapping("/hotels-update-{id}")
+    public ModelAndView updateHotel(@PathVariable Long id) {
+        Hotel result = hotelService.getById(id).get();
+        return new ModelAndView("new-hotel", "hotel", result);
+    }
+
 }
