@@ -7,20 +7,20 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@NoArgsConstructor
 @Data
-public class HotelInventory implements Serializable {
+@NoArgsConstructor
+public class RatePlan implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(nullable = false)
-    private Integer totalInventory;
+    private String name;
 
-    @ManyToOne
+    @ManyToOne(optional = false)
     private Hotel hotel;
 
-    @ManyToOne
+    @ManyToOne(optional = false)
     private RoomType roomType;
 }

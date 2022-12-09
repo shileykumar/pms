@@ -64,29 +64,34 @@
     <!-- Table Start -->
     <div class="container-fluid pt-4 px-4">
       <div class="row g-4">
-
-        <div class="col-12">
+        <div class="col-sm-12 col-xl-6">
           <div class="bg-light rounded h-100 p-4">
-            <div class="d-flex align-items-center justify-content-between mb-4">
-              <h6 class="mb-0">Room Type</h6>
-              <a th:href="@{/roomType-form}" class="btn btn-info">Create</a>
-            </div>
-            <div class="table-responsive">
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th scope="col">Name</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr th:each="roomType : ${roomTypes}">
-                    <td th:text="${roomType.getName}"></td>
-                  </tr>
-                </tbody>
-              </table>
+            <h6 class="mb-4">Hotel Details</h6>
+            <dl class="row mb-0">
+              <dt class="col-sm-4">Id</dt>
+              <dd class="col-sm-8" th:text="*{hotel.id}"></dd>
+
+              <dt class="col-sm-4">Code</dt>
+              <dd class="col-sm-8" th:text="*{hotel.code}"></dd>
+
+              <dt class="col-sm-4">Name</dt>
+              <dd class="col-sm-8" th:text="*{hotel.name}"></dd>
+
+              <dt class="col-sm-4 text-truncate">Email</dt>
+              <dd class="col-sm-8" th:text="*{hotel.email}"></dd>
+
+              <dt class="col-sm-4">Mobile</dt>
+              <dd class="col-sm-8" th:text="*{hotel.mobile}"></dd>
+            </dl>
+
+            <div class="m-n2 mb-4">
+              <a th:href="@{/inventories}" class="btn btn-outline-primary m-2">Back</a>
+              <a th:href="@{/hotels-update-{id} (id = *{hotel.id})}" class="btn btn-outline-secondary m-2">Edit</a>
             </div>
           </div>
+
         </div>
+
       </div>
     </div>
     <!-- Table End -->
