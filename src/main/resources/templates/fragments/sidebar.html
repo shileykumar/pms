@@ -30,18 +30,24 @@
                     <a href="#" class="dropdown-item">Other Elements</a>
                 </div>
             </div>-->
-            <a th:href="@{/inventory-calender}" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Calendar</a>
             <a th:href="@{/hotels}" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Hotel</a>
+            <a th:href="@{/inventory-calender}" class="nav-item nav-link">
+                <i class="fa fa-th me-2"></i>Inventory Calendar
+            </a>
             <a href="#" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Billing</a>
             <a href="#" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Receipt</a>
             <a href="#" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Invoice</a>
             <div class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fas fa-user"></i>ADMIN</a>
+                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                    <i class="fas fa-user"></i>ADMIN
+                </a>
                 <div class="dropdown-menu bg-transparent border-0">
                     <a th:href="@{/login}" class="dropdown-item">Sign In</a>
                     <a href="signup.html" class="dropdown-item">Sign Up</a>
                     <a th:href="@{/roomType}" class="dropdown-item">Room Type</a>
                     <a th:href="@{/inventories}" class="dropdown-item">Inventory</a>
+                    <a th:href="@{/rate-plan}" class="dropdown-item">Rate Plan</a>
+                    <a th:href="@{/plan-calender}" class="dropdown-item">Rate Plan Calender</a>
                 </div>
             </div>
         </div>
