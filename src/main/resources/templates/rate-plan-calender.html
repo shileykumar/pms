@@ -80,6 +80,7 @@
                                     <th scope="col">Applicable Days</th>
                                     <th scope="col">Hotel</th>
                                     <th scope="col">Rate Plan</th>
+                                    <th scope="col">Action</th>
                                 </tr>
                                 </thead>
                                 <tbody>
@@ -92,6 +93,9 @@
                                     <td th:text="${obj.applicable_days}"></td>
                                     <td th:text="${obj.hotel.name}"></td>
                                     <td th:text="${obj.ratePlan.name}"></td>
+                                    <td>
+                                        <a th:href="@{/plan-calender-update-{id}(id= ${obj.id})}" class="btn btn-primary">Edit</a>
+                                    </td>
                                 </tr>
 
                                 </tbody>
